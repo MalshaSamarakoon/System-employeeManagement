@@ -18,15 +18,17 @@ public class Employee {
     @Column(name = "email_id")
     private String emailId;
 
+    // @NoArgConstructor
     public Employee(){}
 
+    // @AllArgConstructor
     public Employee(String firstName, String lastName, String emailId) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailId = emailId;
     }
-
+// @Data
     public long getId() {
         return id;
     }
