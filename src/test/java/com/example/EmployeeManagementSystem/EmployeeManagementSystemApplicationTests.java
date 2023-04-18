@@ -1,15 +1,18 @@
 package com.example.EmployeeManagementSystem;
 
+import com.example.EmployeeManagementSystem.controller.RestClient;
 import com.example.EmployeeManagementSystem.entity.Employee;
 import com.example.EmployeeManagementSystem.repository.EmployeeRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
+
 
 @DataJpaTest
-@SpringBootTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+
 public class EmployeeManagementSystemApplicationTests {
 
 	@Autowired
@@ -29,7 +32,7 @@ public class EmployeeManagementSystemApplicationTests {
 
 	@Test
 	public void getEmployeeTest() {
-		Employee employee = employeeRepository.findById(1).get();
-		Assertions.assertThat(employee.getId()).isEqualTo(1);
+		Employee employee = employeeRepository.findById(2L).get();
+		Assertions.assertThat(employee.getId()).isEqualTo(2L);
 	}
 }
